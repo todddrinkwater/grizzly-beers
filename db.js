@@ -17,3 +17,8 @@ function getUser (id, testDb) {
   var db = testDb || connection
   return db('users').where('id', id)
 }
+
+function getBeerInfo (id, testDb){
+  var db = testDb || connection
+  return db('beer').select()
+}
