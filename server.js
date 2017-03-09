@@ -21,5 +21,5 @@ server.use(bodyParser.urlencoded({ extended: true }))
 
 server.get('/', index.get)
 server.get('/beerProfile', index.getBeerProfile)
-server.get('/venueProfile', index.getVenueProfile)
-server.post('/beerProfile', index.addReview)
+// server.get('/venueProfile', index.getVenueProfile)
+// server.post('/beerProfile', index.addReview)
