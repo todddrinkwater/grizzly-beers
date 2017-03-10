@@ -19,10 +19,10 @@ function get (req, res) {
 }
 
 function getBeerProfile (req,res){
-  console.log("Beer!!!");
-  db.getBeerInfo()
+  var id = req.body.param
+  db.getBeerInfo(id)
     .then(function(beer){
-      res.render('beerProfile',{name:"tuatara", description:"I like pizza", venueName: "EDA"})
+      res.render('beerProfile', {name:"tuatara", description:"I like pizza", venueName: "EDA"})
   })
 }
 

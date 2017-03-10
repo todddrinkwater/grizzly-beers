@@ -21,5 +21,7 @@ function getUser (id, testDb) {
 
 function getBeerInfo (id, testDb){
   var db = testDb || connection
-  return db('beer').select()
+  return db('beer')
+  .where('id', id)
+  .select()
 }
