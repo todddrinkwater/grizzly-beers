@@ -17,7 +17,11 @@
       <p>{{description}}</p>
 
     <h3>Where to find it:</h3>
-
+    <ul>
+    {{#each venues}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
 
     <form class="" action="/beerProfile" method="post">
       <input type="text" name="beerReview" value="Write review here...">

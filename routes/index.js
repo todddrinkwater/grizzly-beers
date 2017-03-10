@@ -21,10 +21,16 @@ function get (req, res) {
 function getBeerProfile (req,res){
   var id = req.params.id
   db.getBeer(id)
-  .select()
-  .then(function(beer){
-    console.log(beer);
-  res.render('beerProfile', beer[0])
+
+  .then(function(results){
+    console.log(results)
+    var data = {
+      name: results[0].name,
+      description: results[0].description,
+      venues: results.map((row) => {return row.venue})
+    }
+    console.log(data);
+  res.render('beerProfile', data)
   })
 }
 

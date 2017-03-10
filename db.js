@@ -16,7 +16,12 @@ function getBeers (testDb){
 
 function getBeer (id, testDb) {
   var db = testDb || connection
-  return db('beers').where('beer_id', id)
+  return db('beers')
+  .join('venue-beers', 'venue-beers.beer_id', '=', 'beers.beer_id')
+  .join('venues', 'venues.venue_id', '=', 'venue-beers.venue_id')
+  //  .where('venue_beers.beers_id', 'beersbeers_id')
+  .where('beers.beer_id', id)
+  .select('beers.name', 'beers.description' , 'venues.name as venue')
 }
 
 
