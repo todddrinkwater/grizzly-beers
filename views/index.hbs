@@ -4,9 +4,10 @@
     <title>EDA Phase 1 Express Boilerplate</title>
   </head>
   <body>
+    <h1> Beer Selection </h1>
     <ul>
-    {{#each beer}}
-      <li>{{name}}</li>
+    {{#each beers}}
+      <li><a href ='/beerProfile/{{beer_id}}'>{{name}}</a></li>
     {{/each}}
     </ul>
   </body>

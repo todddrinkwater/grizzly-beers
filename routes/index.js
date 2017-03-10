@@ -5,13 +5,13 @@ var db = require('../db')
 module.exports = {
   get: get,
   getBeerProfile: getBeerProfile,
-  getVenueProfile: getVenueProfile
+  // getVenueProfile: getVenueProfile
 }
 
 function get (req, res) {
-  db.getUsers()
-    .then(function (users) {
-      res.render('index', { users: users })
+  db.getBeers()
+    .then(function (beers) {
+          res.render('index', { beers: beers })
     })
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -19,16 +19,18 @@ function get (req, res) {
 }
 
 function getBeerProfile (req,res){
-  var id = req.body.param
-  db.getBeerInfo(id)
-    .then(function(beer){
-      res.render('beerProfile', {name:"tuatara", description:"I like pizza", venueName: "EDA"})
+  var id = req.params.id
+  db.getBeer(id)
+  .select()
+  .then(function(beer){
+    console.log(beer);
+  res.render('beerProfile', beer[0])
   })
 }
 
-function getVenueProfile (req, res){
-  db.getVenueProfile()
-    .then(function(venue){
-      res.render('venueProfile', {venue:venue})
-    })
-}
+// function getVenueProfile (req, res){
+//   db.getVenueProfile()
+//     .then(function(venue){
+//       res.render('venueProfile', {venue:venue})
+//     })
+// }

@@ -7,7 +7,9 @@
   </head>
   <body>
     <header>
-      <h1> {{name}} </h1>
+      <h1>
+        {{name}}
+      </h1>
       <img src={{imgURL}}>
 
     </header>
@@ -15,11 +17,7 @@
       <p>{{description}}</p>
 
     <h3>Where to find it:</h3>
-    <ul>
-      {{#each}}
-        <li>{{venueName}}</li>
-      {{/each}}
-    </ul>
+
 
     <form class="" action="/beerProfile" method="post">
       <input type="text" name="beerReview" value="Write review here...">
